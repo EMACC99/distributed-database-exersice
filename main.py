@@ -1,7 +1,6 @@
 import sys
 from PyQt5.QtCore import QModelIndex, Qt, QAbstractTableModel
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
-from numpy.lib.function_base import select
 from interfaz import Ui_MainWindow as window
 import pandas as pd
 import dbconection as db
@@ -35,7 +34,7 @@ class UI(QMainWindow, window):
     def __init__(self, parent = None):
         super().__init__(parent)
         self.setupUi(self)
-        self.setWindowTitle("Mi primer base de datos MiAlegria")
+        self.setWindowTitle("Mi primer base de datos distribuida MiAlegria")
 
         self.DatabaseComboBox.addItems(db.get_databases())
 

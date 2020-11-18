@@ -93,8 +93,26 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuOperaciones">
+    <property name="title">
+     <string>Operaciones</string>
+    </property>
+    <addaction name="actionNuevo_Registro"/>
+    <addaction name="actionEditar_Registro"/>
+   </widget>
+   <addaction name="menuOperaciones"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNuevo_Registro">
+   <property name="text">
+    <string>Nuevo Registro</string>
+   </property>
+  </action>
+  <action name="actionEditar_Registro">
+   <property name="text">
+    <string>Editar Registro</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

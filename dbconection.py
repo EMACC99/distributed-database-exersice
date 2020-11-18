@@ -86,3 +86,15 @@ def count_items(table):
         return items
     except mariadb.Error as err:
         error(err)
+
+def nuevo_registro(table, values, columns):
+    try:
+        cnx = mariadb.connect(**config)
+        cursor = cnx.cursor()
+        query  = f"INSERT INTO {table} VALUES " + "%s "*len(values)
+        cursor.execute(query, tuple(values))
+        cnx.commit()
+    
+    except mariadb.Error as err:
+        error(err)
+
