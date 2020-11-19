@@ -98,3 +98,16 @@ def nuevo_registro(table, values, columns):
     except mariadb.Error as err:
         error(err)
 
+def list_all(table, databases):
+    try:
+        items = []
+        cnx = mariadb.connect(**config)
+        cursor = cnx.cursor()
+        query  = f"SELECT * FROM {databases[0]}.{table} UNION SELECT * FROM {databases[1]}.{table}"
+        cursor.execute(query)
+        for row in cursor:
+            items.append(list(row))
+        cnx.commit()
+        return items
+    except mariadb.Error as err:
+        error(err)

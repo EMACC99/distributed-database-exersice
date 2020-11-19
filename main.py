@@ -1,10 +1,10 @@
 import sys
 from PyQt5.QtCore import QModelIndex, Qt, QAbstractTableModel
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QDialog
 from interfaz import Ui_MainWindow as window
 import pandas as pd
 import dbconection as db
-
+from dialogo_busqueda import buscar
 class TableModel(QAbstractTableModel):
     def __init__(self, data):
         super().__init__()
@@ -40,6 +40,8 @@ class UI(QMainWindow, window):
 
         self.LoadTables.clicked.connect(lambda : self.load_tables(self.DatabaseComboBox.currentText()))
         self.LoadValues.clicked.connect(lambda : self.select_all( db.get_column_names(self.TablecomboBox.currentText())))
+        self.ListAll.clicked.connect(lambda : self.select_all(db.get_column_names(self.TablecomboBox.currentText()), all = True))
+        self.actionBuscar.triggered.connect()
 
     def load_tables(self, database):
         tables = db.get_tables(database)
@@ -48,8 +50,11 @@ class UI(QMainWindow, window):
         # columns = db.get_column_names(self.TablecomboBox.currentText())
         # self.select_all(columns)
 
-    def select_all(self, columns):
-        items = db.todos(self.TablecomboBox.currentText())
+    def select_all(self, columns, all = False):
+        if all:
+            items = db.list_all(databases=["Moreliadb", "Patzcuarodb"], table=self.TablecomboBox.currentText())
+        else:
+            items = db.todos(self.TablecomboBox.currentText())
         # columns = db.get_column_names(self.TablecomboBox.currentText())
         data = pd.DataFrame(items, columns=columns)
 

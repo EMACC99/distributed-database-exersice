@@ -61,6 +61,13 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="ListAll">
+       <property name="text">
+        <string>List All</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QComboBox" name="TablecomboBox">
@@ -99,6 +106,7 @@
     </property>
     <addaction name="actionNuevo_Registro"/>
     <addaction name="actionEditar_Registro"/>
+    <addaction name="actionBuscar"/>
    </widget>
    <addaction name="menuOperaciones"/>
   </widget>
@@ -111,6 +119,11 @@
   <action name="actionEditar_Registro">
    <property name="text">
     <string>Editar Registro</string>
+   </property>
+  </action>
+  <action name="actionBuscar">
+   <property name="text">
+    <string>Buscar</string>
    </property>
   </action>
  </widget>
