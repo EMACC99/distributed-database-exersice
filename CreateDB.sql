@@ -1,4 +1,4 @@
-CREATE DATABASE Morelia;
+CREATE DATABASE IF NOT EXISTS Morelia;
 USE Morelia;
 CREATE TABLE Clientes (Id INT(6) PRIMARY KEY NOT NULL, Nombre VARCHAR(100),ApellidoPaterno VARCHAR(100),ApellidoMaterno VARCHAR(100),RFC VARCHAR(13));
 CREATE TABLE Direcciones (Id INT(6) PRIMARY KEY NOT NULL,Calle VARCHAR(100),Numero VARCHAR(10),Colonia VARCHAR(100),Estado VARCHAR(40),CP VARCHAR(10),idCliente INT(6),FOREIGN KEY (idCliente) REFERENCES Clientes(Id) );
@@ -14,7 +14,7 @@ INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (00
 INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (000004,'Escarlate','99','Axteca','Michoacan','58184',000004);
 INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (000005,'Madera','555','Nuevo vallejo','Michoacan','58196',000005);
 INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (000006,'Quinta','1234','San Pedro','Michoacan','58156',000006);
-CREATE DATABASE Patzcuaro;
+CREATE DATABASE IF NOT EXISTS Patzcuaro;
 USE Patzcuaro;
 CREATE TABLE Clientes (Id INT(6) PRIMARY KEY NOT NULL, Nombre VARCHAR(100),ApellidoPaterno VARCHAR(100),ApellidoMaterno VARCHAR(100),RFC VARCHAR(13));
 CREATE TABLE Direcciones (Id INT(6) PRIMARY KEY NOT NULL,Calle VARCHAR(100),Numero VARCHAR(10),Colonia VARCHAR(100),Estado VARCHAR(40),CP VARCHAR(10),idCliente INT(6),FOREIGN KEY (idCliente) REFERENCES Clientes(Id) );
@@ -30,4 +30,4 @@ INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (00
 INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (000004,'Cedro','969','Tolteca','Michoacan','61606',000004);
 INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (000005,'Teran','546','Nuevo navio','Michoacan','61608',000005);
 INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (000006,'Cipres','12896','Bonanza','Michoacan','16321',000006);
-quit;
+-- quit;
