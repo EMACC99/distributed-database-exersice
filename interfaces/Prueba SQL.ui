@@ -48,16 +48,16 @@
       <widget class="QTableView" name="tableView"/>
      </item>
      <item>
-      <widget class="QPushButton" name="LoadValues">
+      <widget class="QPushButton" name="LoadTables">
        <property name="text">
-        <string>Load Values</string>
+        <string>Load Tables</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="LoadTables">
+      <widget class="QPushButton" name="LoadValues">
        <property name="text">
-        <string>Load Tables</string>
+        <string>Load Values</string>
        </property>
       </widget>
      </item>
@@ -88,6 +88,32 @@
       <width>151</width>
       <height>20</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>61</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Databases</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>10</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tables</string>
     </property>
    </widget>
   </widget>

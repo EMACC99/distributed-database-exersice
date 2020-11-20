@@ -97,6 +97,21 @@ def nuevo_registro(table, values, columns):
     except mariadb.Error as err:
         error(err)
 
+def editar_registro(table, values, columns, id):
+    try:
+        cnx = mariadb.connect()
+        cursor = cnx.cursor()
+        query = f"UPDATE {table} SET" + "%s = %s" *len(values) + f"WHERE Id = {id}"
+        query_values = []
+        for i in range(len(columns)):
+            query_values.append(columns[i])
+            query_values.append(values[i])
+
+        cursor.execute(query, tuple(query_values))
+        cnx.commit()
+    except mariadb.Error as err:
+        error(err)
+
 def list_all(table, databases):
     try:
         items = []

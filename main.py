@@ -1,11 +1,11 @@
 import sys
 from PyQt5.QtCore import QModelIndex, Qt, QAbstractTableModel
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QDialog
-from interfaz import Ui_MainWindow as window
+from interfaces.interfaz import Ui_MainWindow as window
 import pandas as pd
-import dbconection as db
-from busqueda import buscar
-from table_model import TableModel
+import Functions.dbconection as db
+from Functions.busqueda import buscar
+from Functions.table_model import TableModel
 
 class UI(QMainWindow, window):
     def __init__(self, parent = None):
