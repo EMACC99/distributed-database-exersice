@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QDialog
 from interfaz import Ui_MainWindow as window
 import pandas as pd
 import dbconection as db
-from dialogo_busqueda import buscar
+from busqueda import buscar
 class TableModel(QAbstractTableModel):
     def __init__(self, data):
         super().__init__()
@@ -37,11 +37,11 @@ class UI(QMainWindow, window):
         self.setWindowTitle("Mi primer base de datos distribuida MiAlegria")
 
         self.DatabaseComboBox.addItems(db.get_databases())
-
+        
         self.LoadTables.clicked.connect(lambda : self.load_tables(self.DatabaseComboBox.currentText()))
         self.LoadValues.clicked.connect(lambda : self.select_all( db.get_column_names(self.TablecomboBox.currentText())))
         self.ListAll.clicked.connect(lambda : self.select_all(db.get_column_names(self.TablecomboBox.currentText()), all = True))
-        self.actionBuscar.triggered.connect()
+        self.actionBuscar.triggered.connect(buscar(self).show)
 
     def load_tables(self, database):
         tables = db.get_tables(database)

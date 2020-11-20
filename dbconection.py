@@ -111,3 +111,23 @@ def list_all(table, databases):
         return items
     except mariadb.Error as err:
         error(err)
+
+def list_find(value, column, table, databases = None):
+    try:
+        cnx = mariadb.connect(**config)
+        cursor = cnx.cursor()
+        if databases is None:
+            query = "SELECT * FROM %s WHERE %s = %s"
+            cursor.excecute(query, tuple(table, column, value))
+
+        elif databases is not None:
+            query = "SELECT * FROM %s.%s UNION SELECT * FROM %s.%s WHERE %s = %s"
+            cursor.execute(query, tuple(databases[0], table, databases[1], table, column, value))
+
+        items =[list(row) for row in cursor]
+        cnx.commit()
+        return items
+
+    except mariadb.Error as err:
+        error(err)
+        
