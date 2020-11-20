@@ -1,6 +1,5 @@
 import mysql.connector as mariadb
-from mysql.connector import errorcode, FieldType
-
+from mysql.connector import errorcode
 
 config = {"user": "emacc", "password":"12345", "host":"127.0.0.1", "raise_on_warnings": True}
 
@@ -103,7 +102,7 @@ def list_all(table, databases):
         items = []
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()
-        query  = f"SELECT * FROM {databases[0]}.{table} UNION SELECT * FROM {databases[1]}.{table}"
+        query  = f"SELECT * FROM {databases[0]}.{table} UNION SELECT * FROM {databases[1]}.{table}" #this is flawed but it has an easy fix
         cursor.execute(query)
         for row in cursor:
             items.append(list(row))
@@ -117,12 +116,14 @@ def list_find(value, column, table, databases = None):
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()
         if databases is None:
-            query = "SELECT * FROM %s WHERE %s = %s"
-            cursor.excecute(query, tuple(table, column, value))
+            query = f"SELECT * FROM {table} WHERE {column} = {value}"
+            # cursor.execute(query, tuple([table, column, value]))
+            cursor.execute(query)
 
         elif databases is not None:
-            query = "SELECT * FROM %s.%s UNION SELECT * FROM %s.%s WHERE %s = %s"
-            cursor.execute(query, tuple(databases[0], table, databases[1], table, column, value))
+            query = f"SELECT * FROM {databases[0]}.{table} UNION SELECT * FROM {databases[1]}.{table} WHERE {column} = {value}"
+            # cursor.execute(query, tuple([databases[0], table, databases[1], table, column, value]))
+            cursor.execute(query)
 
         items =[list(row) for row in cursor]
         cnx.commit()
@@ -130,4 +131,3 @@ def list_find(value, column, table, databases = None):
 
     except mariadb.Error as err:
         error(err)
-        

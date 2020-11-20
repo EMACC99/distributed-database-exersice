@@ -5,6 +5,7 @@ from interfaz import Ui_MainWindow as window
 import pandas as pd
 import dbconection as db
 from busqueda import buscar
+
 class TableModel(QAbstractTableModel):
     def __init__(self, data):
         super().__init__()
@@ -38,10 +39,18 @@ class UI(QMainWindow, window):
 
         self.DatabaseComboBox.addItems(db.get_databases())
         
+        self.load_tables(self.DatabaseComboBox.currentText())
+        # print([self.TablecomboBox.itemText(i) for i in range(self.TablecomboBox.count())])
+
         self.LoadTables.clicked.connect(lambda : self.load_tables(self.DatabaseComboBox.currentText()))
         self.LoadValues.clicked.connect(lambda : self.select_all( db.get_column_names(self.TablecomboBox.currentText())))
         self.ListAll.clicked.connect(lambda : self.select_all(db.get_column_names(self.TablecomboBox.currentText()), all = True))
-        self.actionBuscar.triggered.connect(buscar(self).show)
+        self.actionBuscar.triggered.connect(self.call_find)
+
+    def call_find(self):
+        buscar(self, self.TablecomboBox.currentText(), db.get_column_names(self.TablecomboBox.currentText())).show()
+
+
 
     def load_tables(self, database):
         tables = db.get_tables(database)
