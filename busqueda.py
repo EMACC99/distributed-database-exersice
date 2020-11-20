@@ -1,32 +1,8 @@
-from PyQt5.QtCore import QAbstractTableModel, Qt
 from PyQt5.QtWidgets import  QDialog
 import pandas as pd
 import dbconection as db
 from dialogo_busqueda import Ui_Dialog as Busqueda
-
-class TableSearchModel(QAbstractTableModel):
-    def __init__(self, data):
-        super().__init__()
-        self._data = data
-
-    def data(self, index, role):
-        if role == Qt.DisplayRole:
-            value = self._data.iloc[index.row(), index.column()]
-            return str(value)
-
-    def rowCount(self, index):
-        return self._data.shape[0]
-
-    def columnCount(self, index):
-        return self._data.shape[1]
-    
-    def headerData(self, section, orientation, role):
-        if role == Qt.DisplayRole:
-            if orientation == Qt.Horizontal:
-                return str(self._data.columns[section])
-
-            if orientation == Qt.Vertical:
-                return str(self._data.index[section])
+from table_model import TableModel
 
 
 class buscar(QDialog, Busqueda):
@@ -48,13 +24,13 @@ class buscar(QDialog, Busqueda):
         column = self.campos.currentText()
         table = self.table
         if  self.checkBox.isChecked():
-            database = self.parent.DatabaseComboBox.currentText()
-            results = db.list_find(value, column, table, database)
+            databases = ['Moreliadb', 'Patzcuarodb']
+            results = db.list_find(value, column, table, databases)
         else:
             results = db.list_find(value, column, table)
 
         print(results)
 
         results = pd.DataFrame(results, columns=self.columns)
-        self.model = TableSearchModel(results)
+        self.model = TableModel(results)
         self.parent.tableView.setModel(self.model)

@@ -116,12 +116,12 @@ def list_find(value, column, table, databases = None):
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()
         if databases is None:
-            query = f"SELECT * FROM {table} WHERE {column} = {value}"
+            query = f"SELECT * FROM {table} WHERE {column} = '{value}'"
             # cursor.execute(query, tuple([table, column, value]))
             cursor.execute(query)
 
         elif databases is not None:
-            query = f"SELECT * FROM {databases[0]}.{table} UNION SELECT * FROM {databases[1]}.{table} WHERE {column} = {value}"
+            query = f"SELECT * FROM {databases[0]}.{table} WHERE {column} = '{value}' UNION SELECT * FROM {databases[1]}.{table} WHERE {column} = '{value}'"
             # cursor.execute(query, tuple([databases[0], table, databases[1], table, column, value]))
             cursor.execute(query)
 

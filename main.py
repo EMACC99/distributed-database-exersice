@@ -5,31 +5,7 @@ from interfaz import Ui_MainWindow as window
 import pandas as pd
 import dbconection as db
 from busqueda import buscar
-
-class TableModel(QAbstractTableModel):
-    def __init__(self, data):
-        super().__init__()
-        self._data = data
-
-    def data(self, index, role):
-        if role == Qt.DisplayRole:
-            value = self._data.iloc[index.row(), index.column()]
-            return str(value)
-
-    def rowCount(self, index):
-        return self._data.shape[0]
-
-    def columnCount(self, index):
-        return self._data.shape[1]
-    
-    def headerData(self, section, orientation, role):
-        if role == Qt.DisplayRole:
-            if orientation == Qt.Horizontal:
-                return str(self._data.columns[section])
-
-            if orientation == Qt.Vertical:
-                return str(self._data.index[section])
-
+from table_model import TableModel
 
 class UI(QMainWindow, window):
     def __init__(self, parent = None):
