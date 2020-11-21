@@ -65,8 +65,8 @@ def todos(table):
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()
         query = (f"SELECT * FROM {table}")
-        tables = (table)
-        cursor.execute(query, tables)
+        # tables = (table)
+        cursor.execute(query)
         for row in cursor:
             items.append(list(row))
         cnx.commit()
@@ -86,11 +86,12 @@ def count_items(table):
     except mariadb.Error as err:
         error(err)
 
-def nuevo_registro(table, values, columns):
+def nuevo_registro(table, values):
     try:
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()
         query  = f"INSERT INTO {table} VALUES " + "%s "*len(values)
+        print(query)
         cursor.execute(query, tuple(values))
         cnx.commit()
     

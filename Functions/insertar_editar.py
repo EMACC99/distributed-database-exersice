@@ -4,22 +4,61 @@ import Functions.dbconection as db
 from interfaces.insertar_editar import Ui_Dialog as insertar_editar
 
 class InsertarEditar(QDialog, insertar_editar):
-    def __init__(self, parent = None, insertar = False):
+    def __init__(self, parent = None, insertar = False, table = None, columns = None):
         super().__init__()
 
         QDialog.__init__(self, parent)
-
         self.parent = parent
         self.setupUi(self)
+        
+        self.plainTextEdit.setReadOnly(True)
+
+        self.table = table
+        self.columns = columns
+        self.registro = []
+        self.flag_error = False
+        self.comboBox.addItems(columns)
+
         if insertar:
             self.pushButton.setText("Insertar")
         else:
             self.pushButton.setText("Editar")
 
         self.CancelButton.clicked.connect(self.close)
-    
+        
+        self.pushButton.clicked.connect(lambda : self.insertar() if insertar else self.editar())
+        self.pushButton_2.clicked.connect(self.update_text)
+
     def editar(self):
-        pass
+        # db.editar_registro()
+        self.plainTextEdit.textCursor().insertText('Editar \n')
+        print('editar')
+
 
     def insertar(self):
-        pass
+        self.plainTextEdit.textCursor().insertText('Insertar \n')
+        if len(self.registro) != 2*len(self.columns):
+            self.plainTextEdit.setPlainText("Para insertar necesitas llenar todos los campos!")
+            self.comboBox.clear()
+            self.comboBox.addItems(self.columns)
+            self.flag_error = True
+            # self.close()
+        db.nuevo_registro(self.table, self.registro[1::2]) #esto suelta error porque los tipos de datos los agarra como string y no como int o lo que sea para los ids
+        print('insertar')
+        print(self.registro)
+        self.plainTextEdit.setPlainText('')
+        self.close()
+
+    def update_text(self):
+        if self.flag_error:
+            self.plainTextEdit.setPlainText('')
+        
+        col = self.comboBox.currentText()
+        val = self.lineEdit.text()
+        # if self.comboBox.currentIndex() == 0:
+        #     val = int(val)
+        self.registro.append(col)
+        self.registro.append('NULL' if val is '' else val)
+        self.comboBox.removeItem(self.comboBox.currentIndex())
+        self.lineEdit.setText('')
+        self.plainTextEdit.textCursor().insertText(f'{col} : {val} \n')

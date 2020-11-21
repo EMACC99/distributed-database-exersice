@@ -13,7 +13,7 @@ class Ui_Dialog(object):
         Dialog.setObjectName("Dialog")
         Dialog.resize(400, 300)
         self.lineEdit = QtWidgets.QLineEdit(Dialog)
-        self.lineEdit.setGeometry(QtCore.QRect(190, 150, 151, 21))
+        self.lineEdit.setGeometry(QtCore.QRect(160, 150, 151, 21))
         self.lineEdit.setObjectName("lineEdit")
         self.comboBox = QtWidgets.QComboBox(Dialog)
         self.comboBox.setGeometry(QtCore.QRect(10, 150, 131, 21))
@@ -24,6 +24,12 @@ class Ui_Dialog(object):
         self.CancelButton = QtWidgets.QPushButton(Dialog)
         self.CancelButton.setGeometry(QtCore.QRect(260, 220, 75, 23))
         self.CancelButton.setObjectName("CancelButton")
+        self.plainTextEdit = QtWidgets.QPlainTextEdit(Dialog)
+        self.plainTextEdit.setGeometry(QtCore.QRect(20, 10, 331, 111))
+        self.plainTextEdit.setObjectName("plainTextEdit")
+        self.pushButton_2 = QtWidgets.QPushButton(Dialog)
+        self.pushButton_2.setGeometry(QtCore.QRect(320, 150, 61, 21))
+        self.pushButton_2.setObjectName("pushButton_2")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -32,5 +38,6 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.pushButton.setText(_translate("Dialog", "PushButton"))
-        self.CancelButton.setText(_translate("Dialog", "Cancel"))
+        self.CancelButton.setText(_translate("Dialog", "Cancelar"))
+        self.pushButton_2.setText(_translate("Dialog", "Añadir"))
 
