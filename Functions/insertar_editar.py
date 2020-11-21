@@ -55,10 +55,15 @@ class InsertarEditar(QDialog, insertar_editar):
         
         col = self.comboBox.currentText()
         val = self.lineEdit.text()
-        # if self.comboBox.currentIndex() == 0:
-        #     val = int(val)
+        col_type =db.get_column_type(self.table, self.parent.DatabaseComboBox.currentText(), col)
+        print(col_type, type(col_type))
         self.registro.append(col)
-        self.registro.append('NULL' if val is '' else val)
+        if col_type == "int" and val != '':
+            val = int(val)
+        elif val == '':
+            val = "NULL"
+        self.registro.append(val)
+        print(self.registro)
         self.comboBox.removeItem(self.comboBox.currentIndex())
         self.lineEdit.setText('')
         self.plainTextEdit.textCursor().insertText(f'{col} : {val} \n')

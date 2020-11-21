@@ -59,6 +59,19 @@ def get_column_names(table):
     except mariadb.Error as err:
         error(err)
 
+def get_column_type(table, database, column_name):
+    try:
+        cnx = mariadb.connect(**config)
+        cursor = cnx.cursor()
+
+        query = "SELECT DATA_TYPE FROM information_schema.columns WHERE TABLE_NAME = %s AND TABLE_SCHEMA = %s AND COLUMN_NAME = %s"
+        cursor.execute(query, tuple((table, database, column_name)))
+        data_types = [data_type[0] for data_type in cursor.fetchall()]
+        cnx.commit()
+        return data_types[0]
+    except mariadb.Error as err:
+        error(err)
+
 def todos(table):
     try:
         items = []
@@ -90,7 +103,7 @@ def nuevo_registro(table, values):
     try:
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()
-        query  = f"INSERT INTO {table} VALUES " + "%s "*len(values)
+        query  = f"INSERT INTO {table} VALUES (" + "%s, "*(len(values) -1) + "%s)"
         print(query)
         cursor.execute(query, tuple(values))
         cnx.commit()
