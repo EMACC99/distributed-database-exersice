@@ -43,6 +43,7 @@ class InsertarEditar(QDialog, insertar_editar):
             self.comboBox.addItems(self.columns)
             self.flag_error = True
             # self.close()
+            return 
         db.nuevo_registro(self.table, self.registro[1::2]) #esto suelta error porque los tipos de datos los agarra como string y no como int o lo que sea para los ids
         print('insertar')
         print(self.registro)
@@ -56,14 +57,20 @@ class InsertarEditar(QDialog, insertar_editar):
         col = self.comboBox.currentText()
         val = self.lineEdit.text()
         col_type =db.get_column_type(self.table, self.parent.DatabaseComboBox.currentText(), col)
-        print(col_type, type(col_type))
+
+        # print(col_type, type(col_type))
+
         self.registro.append(col)
+
         if col_type == "int" and val != '':
             val = int(val)
         elif val == '':
             val = "NULL"
+
         self.registro.append(val)
+
         print(self.registro)
+
         self.comboBox.removeItem(self.comboBox.currentIndex())
         self.lineEdit.setText('')
         self.plainTextEdit.textCursor().insertText(f'{col} : {val} \n')

@@ -104,7 +104,6 @@ def nuevo_registro(table, values):
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()
         query  = f"INSERT INTO {table} VALUES (" + "%s, "*(len(values) -1) + "%s)"
-        print(query)
         cursor.execute(query, tuple(values))
         cnx.commit()
     
