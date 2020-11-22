@@ -1,6 +1,6 @@
 # Distributed Databases
 ## Authors:
-* ## Cesar Arcos
+* ## Cesar Arcos: racec9999@gmail.com
 * ## Eduardo Ceja
 
 ## Requirements:
