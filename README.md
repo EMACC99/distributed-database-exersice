@@ -2,7 +2,8 @@
 ## Authors:
 * ## Cesar Arcos: racec9999@gmail.com
 * ## Eduardo Ceja: lalitoceja@gmaill.com
-
+## License :
+CC BY-NC
 ## Requirements:
 The proyect needs the following packages:
 * Python 3
