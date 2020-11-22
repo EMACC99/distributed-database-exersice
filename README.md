@@ -1,7 +1,7 @@
 # Distributed Databases
 ## Authors:
 * ## Cesar Arcos: racec9999@gmail.com
-* ## Eduardo Ceja
+* ## Eduardo Ceja: lalitoceja@gmaill.com
 
 ## Requirements:
 The proyect needs the following packages:
