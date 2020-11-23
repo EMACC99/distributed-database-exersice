@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Prueba SQL.ui'
+# Form implementation generated from reading ui file 'interfaces\Prueba SQL.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.label_3.setObjectName("label_3")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 788, 20))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 788, 21))
         self.menubar.setObjectName("menubar")
         self.menuOperaciones = QtWidgets.QMenu(self.menubar)
         self.menuOperaciones.setObjectName("menuOperaciones")

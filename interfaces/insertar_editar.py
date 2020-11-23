@@ -29,6 +29,7 @@ class Ui_Dialog(object):
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.pushButton_2 = QtWidgets.QPushButton(Dialog)
         self.pushButton_2.setGeometry(QtCore.QRect(320, 150, 61, 21))
+        self.pushButton_2.setDefault(True)
         self.pushButton_2.setObjectName("pushButton_2")
 
         self.retranslateUi(Dialog)

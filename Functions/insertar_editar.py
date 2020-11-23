@@ -64,6 +64,8 @@ class InsertarEditar(QDialog, insertar_editar):
 
         if col_type == "int" and val != '':
             val = int(val)
+        elif col_type == "int" and val == '':
+            val = 0
         elif val == '':
             val = "NULL"
 
