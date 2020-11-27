@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>622</width>
-    <height>493</height>
+    <width>764</width>
+    <height>492</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -60,7 +60,7 @@
     <rect>
      <x>40</x>
      <y>10</y>
-     <width>511</width>
+     <width>691</width>
      <height>191</height>
     </rect>
    </property>
@@ -81,7 +81,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>380</x>
+     <x>350</x>
      <y>300</y>
      <width>121</width>
      <height>22</height>
@@ -114,7 +114,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>480</x>
      <y>300</y>
      <width>111</width>
      <height>22</height>
@@ -176,7 +176,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>380</x>
      <y>270</y>
      <width>47</width>
      <height>13</height>
@@ -189,7 +189,7 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>480</x>
      <y>270</y>
      <width>101</width>
      <height>16</height>
@@ -220,6 +220,32 @@
    </property>
    <property name="text">
     <string>Nombre Tabla</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="ReferenceColumn">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>300</y>
+     <width>121</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>270</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Columna que referencia</string>
    </property>
   </widget>
  </widget>

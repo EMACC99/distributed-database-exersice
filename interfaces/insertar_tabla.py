@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'insertar_tabla.ui'
+# Form implementation generated from reading ui file 'interfaces/insertar_tabla.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(622, 493)
+        Dialog.resize(764, 492)
         self.pushButton = QtWidgets.QPushButton(Dialog)
         self.pushButton.setGeometry(QtCore.QRect(60, 350, 75, 23))
         self.pushButton.setDefault(True)
@@ -23,14 +23,14 @@ class Ui_Dialog(object):
         self.pushButton_3.setGeometry(QtCore.QRect(390, 440, 75, 23))
         self.pushButton_3.setObjectName("pushButton_3")
         self.textBrowser = QtWidgets.QTextBrowser(Dialog)
-        self.textBrowser.setGeometry(QtCore.QRect(40, 10, 511, 191))
+        self.textBrowser.setGeometry(QtCore.QRect(40, 10, 691, 191))
         self.textBrowser.setObjectName("textBrowser")
         self.Columna = QtWidgets.QLineEdit(Dialog)
         self.Columna.setGeometry(QtCore.QRect(10, 300, 113, 20))
         self.Columna.setObjectName("Columna")
         self.keyComboBox = QtWidgets.QComboBox(Dialog)
         self.keyComboBox.setEnabled(False)
-        self.keyComboBox.setGeometry(QtCore.QRect(380, 300, 121, 22))
+        self.keyComboBox.setGeometry(QtCore.QRect(350, 300, 121, 22))
         self.keyComboBox.setObjectName("keyComboBox")
         self.sizeSpinBox = QtWidgets.QSpinBox(Dialog)
         self.sizeSpinBox.setGeometry(QtCore.QRect(230, 300, 42, 22))
@@ -40,7 +40,7 @@ class Ui_Dialog(object):
         self.dataType.setObjectName("dataType")
         self.ReferenceTable = QtWidgets.QComboBox(Dialog)
         self.ReferenceTable.setEnabled(False)
-        self.ReferenceTable.setGeometry(QtCore.QRect(510, 300, 111, 22))
+        self.ReferenceTable.setGeometry(QtCore.QRect(480, 300, 111, 22))
         self.ReferenceTable.setObjectName("ReferenceTable")
         self.keyCheckBox = QtWidgets.QCheckBox(Dialog)
         self.keyCheckBox.setGeometry(QtCore.QRect(290, 300, 51, 17))
@@ -55,10 +55,10 @@ class Ui_Dialog(object):
         self.label_3.setGeometry(QtCore.QRect(230, 280, 47, 13))
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(Dialog)
-        self.label_4.setGeometry(QtCore.QRect(410, 270, 47, 13))
+        self.label_4.setGeometry(QtCore.QRect(380, 270, 47, 13))
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(Dialog)
-        self.label_5.setGeometry(QtCore.QRect(510, 270, 101, 16))
+        self.label_5.setGeometry(QtCore.QRect(480, 270, 101, 16))
         self.label_5.setObjectName("label_5")
         self.tableName = QtWidgets.QLineEdit(Dialog)
         self.tableName.setGeometry(QtCore.QRect(10, 230, 113, 20))
@@ -66,6 +66,13 @@ class Ui_Dialog(object):
         self.label_6 = QtWidgets.QLabel(Dialog)
         self.label_6.setGeometry(QtCore.QRect(20, 210, 81, 16))
         self.label_6.setObjectName("label_6")
+        self.ReferenceColumn = QtWidgets.QComboBox(Dialog)
+        self.ReferenceColumn.setEnabled(False)
+        self.ReferenceColumn.setGeometry(QtCore.QRect(610, 300, 121, 22))
+        self.ReferenceColumn.setObjectName("ReferenceColumn")
+        self.label_7 = QtWidgets.QLabel(Dialog)
+        self.label_7.setGeometry(QtCore.QRect(620, 270, 121, 16))
+        self.label_7.setObjectName("label_7")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -83,4 +90,5 @@ class Ui_Dialog(object):
         self.label_4.setText(_translate("Dialog", "Tipo llave"))
         self.label_5.setText(_translate("Dialog", "Tabla que referencia"))
         self.label_6.setText(_translate("Dialog", "Nombre Tabla"))
+        self.label_7.setText(_translate("Dialog", "Columna que referencia"))
 

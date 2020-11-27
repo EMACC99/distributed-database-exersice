@@ -12,8 +12,11 @@ class NewTable(QDialog, talbe_dialog):
         self.setupUi(self)
 
         self.setWindowTitle("Insertar Tabla")
+
         self.keyComboBox.addItems(['Primaria' , 'Foranea', ''])
         self.ReferenceTable.addItems(db.get_tables(self.parent.DatabaseComboBox.currentText()))
+        self.ReferenceColumn.addItems(db.get_column_names(self.ReferenceTable.currentText()))
+
         self.dataType.addItems(['int', 'varchar'])
         self.sizeSpinBox.setValue(1)
         self.pushButton.clicked.connect(self.add)
@@ -27,6 +30,8 @@ class NewTable(QDialog, talbe_dialog):
 
         self.keyCheckBox.toggled.connect(self.enable_combo)
         self.keyComboBox.currentIndexChanged.connect(self.enable_referece_table)
+        
+        self.ReferenceTable.currentIndexChanged.connect(self.update_reference_columns)
 
     def enable_combo(self):
         if self.keyCheckBox.isChecked():
@@ -40,9 +45,15 @@ class NewTable(QDialog, talbe_dialog):
     def enable_referece_table(self):
         if self.keyComboBox.currentText() == 'Primaria':
             self.ReferenceTable.setEnabled(False)
+            self.ReferenceColumn.setEnabled(False)
         else:
             self.ReferenceTable.setEnabled(True)
+            self.ReferenceColumn.setEnabled(True)
     
+    def update_reference_columns(self):
+        self.ReferenceColumn.clear()
+        self.ReferenceColumn.addItems(db.get_column_names(self.ReferenceTable.currentText()))
+
     def insert_table(self):
         db.new_table(self.tableName.text(), self.col_names, self.data_types, "Moreliadb") 
         db.new_table(self.tableName.text(), self.col_names, self.data_types, "Patzcuarodb") 
@@ -55,21 +66,24 @@ class NewTable(QDialog, talbe_dialog):
             return
 
         data_type = self.dataType.currentText()
-        data_size = str(self.sizeSpinBox.value())
+        data_size = self.sizeSpinBox.value()
         key_type = None
         if self.keyCheckBox.isChecked():
             key_type = self.keyComboBox.currentText()
             if self.keyComboBox.currentText() == 'Primaria':
                 self.keyComboBox.removeItem(self.keyComboBox.currentIndex())
                 referenced_table = None
+                referenced_column = None
             elif self.keyComboBox.currentText() is not 'Primaria' and self.ReferenceTable.isEnabled():
                 referenced_table = self.ReferenceTable.currentText()
+                referenced_column = self.ReferenceColumn.currentText()
             else:
                 referenced_table = None
+                referenced_column = None
 
             index = len(self.col_names)
             
-            self.keys.append([key_type, referenced_table, index])
+            self.keys.append([key_type, referenced_table, referenced_column, index])
         
         self.col_names.append(col_name)
         self.data_types.append((data_type, data_size))

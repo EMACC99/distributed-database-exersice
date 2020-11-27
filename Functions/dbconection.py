@@ -167,12 +167,17 @@ def new_table(Name : str, columns : list, data_types: list, database : str, inde
         query = f"USE {database}"
         cursor.execute(query)
         cnx.commit()
-        query = f"CREATE TABLE {Name} ("  + "%s %s," * (len(columns) - 1) + "%s %s )"
+        query = f"CREATE TABLE {Name} ("  + "%s %s(%s)," * (len(columns) - 1) + "%s %s(%s) )"
         aux = []
-        for i,j in zip(columns, data_types):
-            aux.append(i)
-            aux.append(j)
+        for i in range(len(columns)):
+            aux.append(columns[i]) #column name
+            aux.append(data_types[i][0]) #data type
+            aux.append(data_types[i][1]) #data size
         cursor.execute(query, tuple(aux))
         cnx.commit()
+
+        if indexes is not None:
+            query = f"ALTER TABLE {Name} ADD PRIMARY "
+
     except mariadb.Error as err:
         error(err)
