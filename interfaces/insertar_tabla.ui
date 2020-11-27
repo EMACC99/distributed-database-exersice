@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Aceptar</string>
+    <string>Insertar</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
@@ -197,6 +197,29 @@
    </property>
    <property name="text">
     <string>Tabla que referencia</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="tableName">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>230</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>210</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Nombre Tabla</string>
    </property>
   </widget>
  </widget>

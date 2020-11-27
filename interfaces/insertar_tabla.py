@@ -60,6 +60,12 @@ class Ui_Dialog(object):
         self.label_5 = QtWidgets.QLabel(Dialog)
         self.label_5.setGeometry(QtCore.QRect(510, 270, 101, 16))
         self.label_5.setObjectName("label_5")
+        self.tableName = QtWidgets.QLineEdit(Dialog)
+        self.tableName.setGeometry(QtCore.QRect(10, 230, 113, 20))
+        self.tableName.setObjectName("tableName")
+        self.label_6 = QtWidgets.QLabel(Dialog)
+        self.label_6.setGeometry(QtCore.QRect(20, 210, 81, 16))
+        self.label_6.setObjectName("label_6")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -68,7 +74,7 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.pushButton.setText(_translate("Dialog", "Añadir"))
-        self.pushButton_2.setText(_translate("Dialog", "Aceptar"))
+        self.pushButton_2.setText(_translate("Dialog", "Insertar"))
         self.pushButton_3.setText(_translate("Dialog", "Cancelar"))
         self.keyCheckBox.setText(_translate("Dialog", "key"))
         self.label.setText(_translate("Dialog", "Columna"))
@@ -76,4 +82,5 @@ class Ui_Dialog(object):
         self.label_3.setText(_translate("Dialog", "Tamaño"))
         self.label_4.setText(_translate("Dialog", "Tipo llave"))
         self.label_5.setText(_translate("Dialog", "Tabla que referencia"))
+        self.label_6.setText(_translate("Dialog", "Nombre Tabla"))
 

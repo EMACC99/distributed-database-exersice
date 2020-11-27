@@ -21,8 +21,10 @@ class InsertarEditar(QDialog, insertar_editar):
 
         if insertar:
             self.pushButton.setText("Insertar")
+            self.setWindowTitle("Insertar Registro")
         else:
             self.pushButton.setText("Editar")
+            self.setWindowTitle("Editar Registro")
 
         self.CancelButton.clicked.connect(self.close)
         
