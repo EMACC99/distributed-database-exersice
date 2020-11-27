@@ -4,7 +4,6 @@ import Functions.dbconection as db
 from interfaces.dialogo_busqueda import Ui_Dialog as Busqueda
 from Functions.table_model import TableModel
 
-
 class buscar(QDialog, Busqueda):
     def __init__(self, parent = None, table = None, columns = None):
         super().__init__()

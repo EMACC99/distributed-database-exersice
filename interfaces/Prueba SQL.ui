@@ -132,6 +132,7 @@
     </property>
     <addaction name="actionNuevo_Registro"/>
     <addaction name="actionEditar_Registro"/>
+    <addaction name="actionNueva_Tabla"/>
     <addaction name="actionBuscar"/>
    </widget>
    <addaction name="menuOperaciones"/>
@@ -150,6 +151,14 @@
   <action name="actionBuscar">
    <property name="text">
     <string>Buscar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionNueva_Tabla">
+   <property name="text">
+    <string>Nueva Tabla</string>
    </property>
   </action>
  </widget>

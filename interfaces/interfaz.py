@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'interfaces\Prueba SQL.ui'
+# Form implementation generated from reading ui file 'Prueba SQL.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -68,8 +68,11 @@ class Ui_MainWindow(object):
         self.actionEditar_Registro.setObjectName("actionEditar_Registro")
         self.actionBuscar = QtWidgets.QAction(MainWindow)
         self.actionBuscar.setObjectName("actionBuscar")
+        self.actionNueva_Tabla = QtWidgets.QAction(MainWindow)
+        self.actionNueva_Tabla.setObjectName("actionNueva_Tabla")
         self.menuOperaciones.addAction(self.actionNuevo_Registro)
         self.menuOperaciones.addAction(self.actionEditar_Registro)
+        self.menuOperaciones.addAction(self.actionNueva_Tabla)
         self.menuOperaciones.addAction(self.actionBuscar)
         self.menubar.addAction(self.menuOperaciones.menuAction())
 
@@ -89,4 +92,6 @@ class Ui_MainWindow(object):
         self.actionNuevo_Registro.setText(_translate("MainWindow", "Nuevo Registro"))
         self.actionEditar_Registro.setText(_translate("MainWindow", "Editar Registro"))
         self.actionBuscar.setText(_translate("MainWindow", "Buscar"))
+        self.actionBuscar.setShortcut(_translate("MainWindow", "Ctrl+F"))
+        self.actionNueva_Tabla.setText(_translate("MainWindow", "Nueva Tabla"))
 

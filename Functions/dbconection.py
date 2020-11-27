@@ -153,9 +153,26 @@ def list_find(value, column, table, databases = None):
             # cursor.execute(query, tuple([databases[0], table, databases[1], table, column, value]))
             cursor.execute(query)
 
-        items =[list(row) for row in cursor]
+        items = [list(row) for row in cursor]
         cnx.commit()
         return items
 
+    except mariadb.Error as err:
+        error(err)
+
+def new_table(Name : str, columns : list, data_types: list, database : str ):
+    try:
+        cnx = mariadb.connect(**config)
+        cursor = cnx.cursor()
+        query = f"USE {database}"
+        cursor.execute(query)
+        cnx.commit()
+        query = f"CREATE TABLE {Name} ("  + "%s %s," * (len(columns) - 1) + "%s %s )"
+        aux = []
+        for i,j in zip(columns, data_types):
+            aux.append(i)
+            aux.append(j)
+        cursor.execute(query, tuple(aux))
+        cnx.commit()
     except mariadb.Error as err:
         error(err)
