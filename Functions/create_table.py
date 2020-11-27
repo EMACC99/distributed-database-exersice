@@ -40,6 +40,7 @@ class NewTable(QDialog, talbe_dialog):
         else:
             self.keyComboBox.setEnabled(False)
             self.ReferenceTable.setEnabled(False)
+            self.ReferenceColumn.setEnabled(False)
             self.checked = False
         
     def enable_referece_table(self):
