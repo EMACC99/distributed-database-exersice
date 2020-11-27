@@ -160,7 +160,7 @@ def list_find(value, column, table, databases = None):
     except mariadb.Error as err:
         error(err)
 
-def new_table(Name : str, columns : list, data_types: list, database : str ):
+def new_table(Name : str, columns : list, data_types: list, database : str, indexes : list = None ):
     try:
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()

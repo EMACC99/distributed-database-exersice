@@ -1,6 +1,4 @@
-from Functions.table_model import TableModel
 from PyQt5.QtWidgets import QDial, QDialog, QMessageBox
-import pandas as pd
 import Functions.dbconection as db
 from interfaces.insertar_tabla import Ui_Dialog as talbe_dialog
 
