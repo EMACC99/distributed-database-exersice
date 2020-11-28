@@ -11,19 +11,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(788, 655)
+        MainWindow.resize(802, 629)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(460, 0, 321, 51))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 60, 801, 501))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 80, 801, 501))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -31,30 +23,58 @@ class Ui_MainWindow(object):
         self.tableView = QtWidgets.QTableView(self.verticalLayoutWidget)
         self.tableView.setObjectName("tableView")
         self.verticalLayout.addWidget(self.tableView)
-        self.LoadTables = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.LoadTables.setObjectName("LoadTables")
-        self.verticalLayout.addWidget(self.LoadTables)
-        self.LoadValues = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.LoadValues.setObjectName("LoadValues")
-        self.verticalLayout.addWidget(self.LoadValues)
-        self.ListAll = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.ListAll.setObjectName("ListAll")
-        self.verticalLayout.addWidget(self.ListAll)
         self.TablecomboBox = QtWidgets.QComboBox(self.centralwidget)
-        self.TablecomboBox.setGeometry(QtCore.QRect(150, 40, 151, 20))
+        self.TablecomboBox.setGeometry(QtCore.QRect(160, 20, 151, 20))
+        self.TablecomboBox.setStyleSheet("border-style: outset;\n"
+"border-width: 2px;\n"
+"border-radius:10px;\n"
+"border-color:white;\n"
+"")
         self.TablecomboBox.setObjectName("TablecomboBox")
         self.DatabaseComboBox = QtWidgets.QComboBox(self.centralwidget)
-        self.DatabaseComboBox.setGeometry(QtCore.QRect(0, 40, 151, 20))
+        self.DatabaseComboBox.setGeometry(QtCore.QRect(0, 20, 151, 20))
+        self.DatabaseComboBox.setStyleSheet("border-style: outset;\n"
+"border-width: 2px;\n"
+"border-radius:10px;\n"
+"border-color:white;\n"
+"")
         self.DatabaseComboBox.setObjectName("DatabaseComboBox")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(10, 15, 91, 16))
+        self.label_2.setGeometry(QtCore.QRect(20, 0, 91, 16))
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(150, 15, 47, 16))
+        self.label_3.setGeometry(QtCore.QRect(210, 0, 47, 16))
         self.label_3.setObjectName("label_3")
+        self.LoadTables = QtWidgets.QPushButton(self.centralwidget)
+        self.LoadTables.setGeometry(QtCore.QRect(320, 0, 101, 41))
+        self.LoadTables.setStyleSheet("background-color:white;\n"
+"color:black;\n"
+"border-style: outset;\n"
+"border-width: 2px;\n"
+"border-radius:10px;\n"
+"border-color:white;")
+        self.LoadTables.setObjectName("LoadTables")
+        self.LoadValues = QtWidgets.QPushButton(self.centralwidget)
+        self.LoadValues.setGeometry(QtCore.QRect(10, 50, 131, 23))
+        self.LoadValues.setStyleSheet("background-color:white;\n"
+"color:black;\n"
+"border-style: outset;\n"
+"border-width: 2px;\n"
+"border-radius:10px;\n"
+"border-color:white;")
+        self.LoadValues.setObjectName("LoadValues")
+        self.ListAll = QtWidgets.QPushButton(self.centralwidget)
+        self.ListAll.setGeometry(QtCore.QRect(190, 50, 91, 23))
+        self.ListAll.setStyleSheet("background-color:white;\n"
+"color:black;\n"
+"border-style: outset;\n"
+"border-width: 2px;\n"
+"border-radius:10px;\n"
+"border-color:white;")
+        self.ListAll.setObjectName("ListAll")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 788, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 802, 20))
         self.menubar.setObjectName("menubar")
         self.menuOperaciones = QtWidgets.QMenu(self.menubar)
         self.menuOperaciones.setObjectName("menuOperaciones")
@@ -82,12 +102,11 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "Mi primer base de datos Mi Alegria"))
+        self.label_2.setText(_translate("MainWindow", "Base de datos"))
+        self.label_3.setText(_translate("MainWindow", "Tablas"))
         self.LoadTables.setText(_translate("MainWindow", "Cargar tablas"))
         self.LoadValues.setText(_translate("MainWindow", "Cargar Registros"))
         self.ListAll.setText(_translate("MainWindow", "Mostrar todo"))
-        self.label_2.setText(_translate("MainWindow", "Base de datos"))
-        self.label_3.setText(_translate("MainWindow", "Tablas"))
         self.menuOperaciones.setTitle(_translate("MainWindow", "Operaciones"))
         self.actionNuevo_Registro.setText(_translate("MainWindow", "Nuevo Registro"))
         self.actionEditar_Registro.setText(_translate("MainWindow", "Editar Registro"))

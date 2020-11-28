@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Bluebk.jpg</file>
+  </qresource>
+</RCC>

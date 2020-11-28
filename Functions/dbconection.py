@@ -1,7 +1,7 @@
 import mysql.connector as mariadb
 from mysql.connector import errorcode
 
-config = {"user": "emacc", "password":"12345", "host":"127.0.0.1", "raise_on_warnings": True}
+config = {"user": "root", "password":"", "host":"127.0.0.1", "raise_on_warnings": True}
 
 def error(err):
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:

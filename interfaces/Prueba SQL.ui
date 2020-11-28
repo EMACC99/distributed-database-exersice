@@ -6,39 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>788</width>
-    <height>655</height>
+    <width>802</width>
+    <height>629</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>460</x>
-      <y>0</y>
-      <width>321</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Mi primer base de datos Mi Alegria</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>60</y>
+      <y>80</y>
       <width>801</width>
       <height>501</height>
      </rect>
@@ -47,54 +27,47 @@
      <item>
       <widget class="QTableView" name="tableView"/>
      </item>
-     <item>
-      <widget class="QPushButton" name="LoadTables">
-       <property name="text">
-        <string>Cargar tablas</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="LoadValues">
-       <property name="text">
-        <string>Cargar Registros</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="ListAll">
-       <property name="text">
-        <string>Mostrar todo</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
    <widget class="QComboBox" name="TablecomboBox">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>40</y>
+      <x>160</x>
+      <y>20</y>
       <width>151</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-style: outset;
+border-width: 2px;
+border-radius:10px;
+border-color:white;
+</string>
     </property>
    </widget>
    <widget class="QComboBox" name="DatabaseComboBox">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>40</y>
+      <y>20</y>
       <width>151</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-style: outset;
+border-width: 2px;
+border-radius:10px;
+border-color:white;
+</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>15</y>
+      <x>20</x>
+      <y>0</y>
       <width>91</width>
       <height>16</height>
      </rect>
@@ -106,8 +79,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>15</y>
+      <x>210</x>
+      <y>0</y>
       <width>47</width>
       <height>16</height>
      </rect>
@@ -116,14 +89,77 @@
      <string>Tablas</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="LoadTables">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>0</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+color:black;
+border-style: outset;
+border-width: 2px;
+border-radius:10px;
+border-color:white;</string>
+    </property>
+    <property name="text">
+     <string>Cargar tablas</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LoadValues">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>131</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+color:black;
+border-style: outset;
+border-width: 2px;
+border-radius:10px;
+border-color:white;</string>
+    </property>
+    <property name="text">
+     <string>Cargar Registros</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ListAll">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>50</y>
+      <width>91</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+color:black;
+border-style: outset;
+border-width: 2px;
+border-radius:10px;
+border-color:white;</string>
+    </property>
+    <property name="text">
+     <string>Mostrar todo</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>788</width>
-     <height>21</height>
+     <width>802</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuOperaciones">
