@@ -13,7 +13,7 @@ class UI(QMainWindow, window):
     def __init__(self, parent = None):
         super().__init__(parent)
         self.setupUi(self)
-        self.setWindowTitle("Mi primer base de datos distribuida MiAlegria")
+        self.setWindowTitle("DDB9")
 
         self.DatabaseComboBox.addItems(db.get_databases())
         

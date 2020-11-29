@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>802</width>
+    <width>799</width>
     <height>629</height>
    </rect>
   </property>
@@ -15,6 +15,9 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -25,7 +28,11 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QTableView" name="tableView"/>
+      <widget class="QTableView" name="tableView">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -38,11 +45,19 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Light</family>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">border-style: outset;
 border-width: 2px;
 border-radius:10px;
 border-color:white;
+
+background-color:#0078CC;
+color:white;
 </string>
     </property>
    </widget>
@@ -55,11 +70,18 @@ border-color:white;
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Light</family>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">border-style: outset;
 border-width: 2px;
 border-radius:10px;
 border-color:white;
+background-color:#0078CC;
+color:white;
 </string>
     </property>
    </widget>
@@ -68,9 +90,19 @@ border-color:white;
      <rect>
       <x>20</x>
       <y>0</y>
-      <width>91</width>
+      <width>101</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Light</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+</string>
     </property>
     <property name="text">
      <string>Base de datos</string>
@@ -85,6 +117,16 @@ border-color:white;
       <height>16</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Light</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+</string>
+    </property>
     <property name="text">
      <string>Tablas</string>
     </property>
@@ -93,14 +135,20 @@ border-color:white;
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>0</y>
+      <y>10</y>
       <width>101</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Light</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color:white;
-color:black;
+     <string notr="true">background-color:#0078CC;
+color:white;
 border-style: outset;
 border-width: 2px;
 border-radius:10px;
@@ -113,15 +161,21 @@ border-color:white;</string>
    <widget class="QPushButton" name="LoadValues">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>550</x>
       <y>50</y>
       <width>131</width>
       <height>23</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Light</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color:white;
-color:black;
+     <string notr="true">background-color:#0078CC;
+color:white;
 border-style: outset;
 border-width: 2px;
 border-radius:10px;
@@ -134,15 +188,21 @@ border-color:white;</string>
    <widget class="QPushButton" name="ListAll">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>700</x>
       <y>50</y>
       <width>91</width>
       <height>23</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Light</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color:white;
-color:black;
+     <string notr="true">background-color:#0078CC;
+color:white;
 border-style: outset;
 border-width: 2px;
 border-radius:10px;
@@ -152,13 +212,57 @@ border-color:white;</string>
      <string>Mostrar todo</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1021</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#376D93;
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>45</y>
+      <width>1031</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#2E5B7C;
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label_4</zorder>
+   <zorder>label</zorder>
+   <zorder>verticalLayoutWidget</zorder>
+   <zorder>TablecomboBox</zorder>
+   <zorder>DatabaseComboBox</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>LoadTables</zorder>
+   <zorder>LoadValues</zorder>
+   <zorder>ListAll</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>802</width>
+     <width>799</width>
      <height>20</height>
     </rect>
    </property>
@@ -177,6 +281,11 @@ border-color:white;</string>
   <action name="actionNuevo_Registro">
    <property name="text">
     <string>Nuevo Registro</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Ubuntu Light</family>
+    </font>
    </property>
   </action>
   <action name="actionEditar_Registro">
