@@ -1,7 +1,7 @@
 import mysql.connector as mariadb
 from mysql.connector import errorcode
 
-config = {"user": "root", "password":"", "host":"127.0.0.1", "raise_on_warnings": True}
+config = {"user": "emacc", "password":"12345", "host":"127.0.0.1", "raise_on_warnings": True}
 
 def error(err):
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -160,24 +160,50 @@ def list_find(value, column, table, databases = None):
     except mariadb.Error as err:
         error(err)
 
-def new_table(Name : str, columns : list, data_types : list, database : str, indexes : list = None ):
+def new_table(Name : str, columns : list, data_types : list, database : str, keys : list = None ):
     try:
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()
         query = f"USE {database}"
         cursor.execute(query)
         cnx.commit()
-        query = f"CREATE TABLE {Name} ("  + "%s %s(%s)," * (len(columns) - 1) + "%s %s(%s) )"
-        aux = []
+        header_commit = f"CREATE TABLE {Name} ("
+        contents = ""
         for i in range(len(columns)):
-            aux.append(columns[i]) #column name
-            aux.append(data_types[i][0]) #data type
-            aux.append(data_types[i][1]) #data size
-        cursor.execute(query, tuple(aux))
+            contents += f"{columns[i]} {data_types[i][0]}({data_types[i][1]}),"
+        # query = f"CREATE TABLE {Name} ("  + "%s %s(%s)," * (len(columns) - 1) + "%s %s(%s) )"
+        # aux = []
+        # for i in range(len(columns)):
+        #     aux.append(columns[i]) #column name
+        #     aux.append(data_types[i][0]) #data type
+        #     aux.append(data_types[i][1]) #data size
+        # cursor.execute(query, tuple(aux))
+        query = header_commit + contents
+        if keys is not None:
+            for key in keys:
+                if key[0] == 'Primaria':
+                    query += f'PRIMARY KEY ({columns[key[-1]]}),'
+                elif key[0] == 'Foranea':
+                    query += f'FOREIGN KEY ({columns[key[-1]]}) REFERENCES {key[1]}({key[2]})'
+            
+        query += ')'
+        print(query)
+        cursor.execute(query)
         cnx.commit()
 
-        if indexes is not None:
-            query = f"ALTER TABLE {Name} ADD PRIMARY "
+
+    except mariadb.Error as err:
+        error(err)
+
+
+def get_table_pk(table_name : str, database : str):
+    try:
+        cnx = mariadb.connect(**config)
+        cursor = cnx.cursor()
+        query = " SELECT COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_NAME = %s AND TABLE_SCHEMA = %s AND COLUMN_KEY = 'PRI'"
+        cursor.execute(query, tuple((table_name, database)))
+        cols = [col[0] for col in cursor.fetchall()]
+        return cols
 
     except mariadb.Error as err:
         error(err)

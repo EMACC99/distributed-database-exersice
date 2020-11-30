@@ -15,7 +15,7 @@ class NewTable(QDialog, talbe_dialog):
 
         self.keyComboBox.addItems(['Primaria' , 'Foranea', ''])
         self.ReferenceTable.addItems(db.get_tables(self.parent.DatabaseComboBox.currentText()))
-        self.ReferenceColumn.addItems(db.get_column_names(self.ReferenceTable.currentText()))
+        self.ReferenceColumn.addItems(db.get_table_pk(self.ReferenceTable.currentText(), self.parent.DatabaseComboBox.currentText() ))
 
         self.dataType.addItems(['int', 'varchar'])
         self.sizeSpinBox.setValue(1)
@@ -56,8 +56,9 @@ class NewTable(QDialog, talbe_dialog):
         self.ReferenceColumn.addItems(db.get_column_names(self.ReferenceTable.currentText()))
 
     def insert_table(self):
-        db.new_table(self.tableName.text(), self.col_names, self.data_types, "Moreliadb") 
-        db.new_table(self.tableName.text(), self.col_names, self.data_types, "Patzcuarodb") 
+        db.new_table(self.tableName.text(), self.col_names, self.data_types, "Moreliadb", self.keys) 
+        db.new_table(self.tableName.text(), self.col_names, self.data_types, "Patzcuarodb", self.keys)
+        self.close()
 
     def add(self):
         col_name = self.Columna.text()
