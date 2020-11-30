@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QDial, QDialog, QMessageBox
-import Functions.dbconection as db
+import Functions.dbconnection as db
 from interfaces.insertar_tabla import Ui_Dialog as talbe_dialog
 
 class NewTable(QDialog, talbe_dialog):
