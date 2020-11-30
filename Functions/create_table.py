@@ -76,7 +76,7 @@ class NewTable(QDialog, talbe_dialog):
                 self.keyComboBox.removeItem(self.keyComboBox.currentIndex())
                 referenced_table = None
                 referenced_column = None
-            elif self.keyComboBox.currentText() is not 'Primaria' and self.ReferenceTable.isEnabled():
+            elif self.keyComboBox.currentText() != 'Primaria' and self.ReferenceTable.isEnabled():
                 referenced_table = self.ReferenceTable.currentText()
                 referenced_column = self.ReferenceColumn.currentText()
             else:
