@@ -3,7 +3,7 @@ from PyQt5.QtCore import QModelIndex, Qt, QAbstractTableModel
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QDialog
 from interfaces.interfaz import Ui_MainWindow as window
 import pandas as pd
-import Functions.dbconection as db
+import Functions.dbconnection as db
 from Functions.busqueda import buscar
 from Functions.table_model import TableModel
 from Functions.insertar_editar import InsertarEditar
