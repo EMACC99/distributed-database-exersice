@@ -1,6 +1,5 @@
 import sys
-from PyQt5.QtCore import QModelIndex, Qt, QAbstractTableModel
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow
 from interfaces.interfaz import Ui_MainWindow as window
 import pandas as pd
 import Functions.dbconnection as db
@@ -8,10 +7,17 @@ from Functions.busqueda import buscar
 from Functions.table_model import TableModel
 from Functions.insertar_editar import InsertarEditar
 from Functions.create_table import NewTable
+from Functions.login import login
 
 class UI(QMainWindow, window):
     def __init__(self, parent = None):
         super().__init__(parent)
+        self.log_in()
+
+    def log_in(self):
+        login(self).show()
+        
+    def show_main(self):
         self.setupUi(self)
         self.setWindowTitle("DDB9")
 

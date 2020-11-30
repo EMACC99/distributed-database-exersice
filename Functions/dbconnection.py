@@ -1,15 +1,28 @@
 import mysql.connector as mariadb
 from mysql.connector import errorcode
+from PyQt5.QtWidgets import QMessageBox
 
-config = {"user": "emacc", "password":"12345", "host":"127.0.0.1", "raise_on_warnings": True}
+config = {"user": "", "password":"", "host":"127.0.0.1", "raise_on_warnings": True}
 
 def error(err):
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-      print("Something is wrong with your user name or password")
+        # QMessageBox.critical(None, "DATABASE ERROR", "Something is wrong with your user name or password")
+        print("Something is wrong with your user name or password")
     elif err.errno == errorcode.ER_BAD_DB_ERROR:
-      print("Database does not exist")
+        QMessageBox.critical(None, "DATABASE ERROR", "Database does not exist")
+        print("Database does not exist")
     else:
-      print(err)
+        QMessageBox.critical(None, "DATABASE ERROR", str(err))
+        print(err)
+
+def verify_credentials(user, password):
+    try:
+        cnx = mariadb.connect(host = "127.0.0.1", user = user, passwd = password)
+        return True
+    except mariadb.Error as err:
+        error(err)
+        return False    
+
 
 def get_databases():
     try:
