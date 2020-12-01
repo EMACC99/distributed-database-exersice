@@ -28,4 +28,3 @@ class login(QMainWindow, login_ui):
             self.lineEdit.clear()
             self.lineEdit_2.clear()
             
-

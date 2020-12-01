@@ -23,7 +23,7 @@ class buscar(QDialog, Busqueda):
         column = self.campos.currentText()
         table = self.table
         if  self.checkBox.isChecked():
-            databases = ['Moreliadb', 'Patzcuarodb']
+            databases = db.get_databases()
             results = db.list_find(value, column, table, databases)
         else:
             results = db.list_find(value, column, table)

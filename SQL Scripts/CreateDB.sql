@@ -1,5 +1,16 @@
-CREATE DATABASE IF NOT EXISTS Morelia;
-USE Morelia;
+CREATE DATABASE IF NOT EXISTS Sucursales;
+USE Sucursales;
+CREATE TABLE Sucursales(
+    Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    IP INT UNSIGNED DEFAULT INET_ATON('127.0.0.1')
+);
+INSERT INTO Sucursales(Nombre) VALUES ('Moreliadb'), ('Patzcuarodb');
+-- para las consulatas de la ip se hace de esta manera
+--  SELECT Id, Nombre, INET_NTOA(IP) FROM Sucursales;
+
+CREATE DATABASE IF NOT EXISTS Moreliadb;
+USE Moreliadb;
 CREATE TABLE Clientes (Id INT(6) PRIMARY KEY NOT NULL, Nombre VARCHAR(100),ApellidoPaterno VARCHAR(100),ApellidoMaterno VARCHAR(100),RFC VARCHAR(13));
 CREATE TABLE Direcciones (Id INT(6) PRIMARY KEY NOT NULL,Calle VARCHAR(100),Numero VARCHAR(10),Colonia VARCHAR(100),Estado VARCHAR(40),CP VARCHAR(10),idCliente INT(6),FOREIGN KEY (idCliente) REFERENCES Clientes(Id) );
 INSERT INTO  Clientes(Id,Nombre,ApellidoPaterno,ApellidoMaterno,RFC) VALUES (000001,'Leonard','Hofstadter','Perez','CUPU800825569');
@@ -14,8 +25,9 @@ INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (00
 INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (000004,'Escarlate','99','Axteca','Michoacan','58184',000004);
 INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (000005,'Madera','555','Nuevo vallejo','Michoacan','58196',000005);
 INSERT INTO  Direcciones(Id,Calle,Numero,Colonia,Estado,CP,idCliente) VALUES (000006,'Quinta','1234','San Pedro','Michoacan','58156',000006);
-CREATE DATABASE IF NOT EXISTS Patzcuaro;
-USE Patzcuaro;
+
+CREATE DATABASE IF NOT EXISTS Patzcuarodb;
+USE Patzcuarodb;
 CREATE TABLE Clientes (Id INT(6) PRIMARY KEY NOT NULL, Nombre VARCHAR(100),ApellidoPaterno VARCHAR(100),ApellidoMaterno VARCHAR(100),RFC VARCHAR(13));
 CREATE TABLE Direcciones (Id INT(6) PRIMARY KEY NOT NULL,Calle VARCHAR(100),Numero VARCHAR(10),Colonia VARCHAR(100),Estado VARCHAR(40),CP VARCHAR(10),idCliente INT(6),FOREIGN KEY (idCliente) REFERENCES Clientes(Id) );
 INSERT INTO  Clientes(Id,Nombre,ApellidoPaterno,ApellidoMaterno,RFC) VALUES (000001,'Roberto','Gonzalez','Martinez','CUPU800820069');

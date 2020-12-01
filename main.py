@@ -40,7 +40,6 @@ class UI(QMainWindow, window):
     def edit_find(self):
         Edit(self, self.TablecomboBox.currentText(), db.get_column_names(self.TablecomboBox.currentText())).show()
         
-        
     def call_edit_insert(self, insertar):
         InsertarEditar(self, insertar = insertar, table = self.TablecomboBox.currentText(), columns = db.get_column_names(self.TablecomboBox.currentText())).show()
 
@@ -56,7 +55,7 @@ class UI(QMainWindow, window):
 
     def select_all(self, columns, all = False):
         if all:
-            items = db.list_all(databases=["Moreliadb", "Patzcuarodb"], table=self.TablecomboBox.currentText())
+            items = db.list_all(databases=db.get_databases(), table=self.TablecomboBox.currentText())
         else:
             items = db.todos(self.TablecomboBox.currentText())
         # columns = db.get_column_names(self.TablecomboBox.currentText())
@@ -69,7 +68,6 @@ class UI(QMainWindow, window):
         lista = db.count_items(table)
         self.model = TableModel(lista)
         self.tableView.setModel(self.model)
-
 
 if __name__ == '__main__':
     APP = QApplication(sys.argv)

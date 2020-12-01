@@ -1,9 +1,7 @@
 import pandas as pd
 import Functions.dbconnection as db
 from PyQt5.QtWidgets import  QDialog
-#from interfaces.dialogo_busqueda import Ui_Dialog as Busqueda
 from interfaces.dialogo_busqueda_edit import Ui_Dialog as Busqueda
-
 from Functions.table_model import TableModel
 
 class Edit(QDialog, Busqueda):
@@ -51,15 +49,4 @@ class Edit(QDialog, Busqueda):
         self.new_resultado = pd.DataFrame(self.new_resultado, columns=self.columns)
         self.model = TableModel(self.new_resultado)
         self.parent.tableView.setModel(self.model)
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         

@@ -36,7 +36,6 @@ class InsertarEditar(QDialog, insertar_editar):
         self.plainTextEdit.textCursor().insertText('Editar \n')
         print('editar')
 
-
     def insertar(self):
         self.plainTextEdit.textCursor().insertText('Insertar \n')
         if len(self.registro) != 2*len(self.columns):

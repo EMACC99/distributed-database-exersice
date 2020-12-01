@@ -23,12 +23,11 @@ def verify_credentials(user, password):
         error(err)
         return False    
 
-
 def get_databases():
     try:
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()
-        query = (f"SHOW DATABASES")
+        query = (f"SELECT Nombre FROM Sucursales.Sucursales")
         cursor.execute(query)
         databases = [database[0] for database in cursor.fetchall()]
         cnx.commit()
@@ -123,8 +122,6 @@ def nuevo_registro(table, values):
     except mariadb.Error as err:
         error(err)
 
-
-
 def list_all(table, databases):
     try:
         items = []
@@ -154,7 +151,6 @@ def editar_registro(table, values, columns, id):
     except mariadb.Error as err:
         error(err)
 
-
 def edit_registro(value, column, table,idr):
     try:
         cnx = mariadb.connect(**config)
@@ -167,7 +163,6 @@ def edit_registro(value, column, table,idr):
     
     except mariadb.Error as err:
         error(err)
-
 
 def list_find(value, column, table, databases = None):
     try:
@@ -189,7 +184,6 @@ def list_find(value, column, table, databases = None):
 
     except mariadb.Error as err:
         error(err)
-
 
 def new_table(Name : str, columns : list, data_types : list, database : str, keys : list = None ):
     try:
@@ -225,7 +219,6 @@ def new_table(Name : str, columns : list, data_types : list, database : str, key
 
     except mariadb.Error as err:
         error(err)
-
 
 def get_table_pk(table_name : str, database : str):
     try:
