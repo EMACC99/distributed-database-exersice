@@ -61,3 +61,5 @@ class Edit(QDialog, Busqueda):
         
         
         
+        
+        
