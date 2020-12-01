@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import  QDialog
 import pandas as pd
 import Functions.dbconnection as db
+from PyQt5.QtWidgets import  QDialog
 from interfaces.dialogo_busqueda import Ui_Dialog as Busqueda
 from Functions.table_model import TableModel
 
@@ -18,7 +18,7 @@ class buscar(QDialog, Busqueda):
         self.pushButton_2.clicked.connect(self.close)
 
 
-    def find(self,  data = None):
+    def find(self):
         value = self.lineEdit.text()
         column = self.campos.currentText()
         table = self.table

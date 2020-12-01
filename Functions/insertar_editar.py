@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import  QDialog
 import pandas as pd
 import Functions.dbconnection as db
+from PyQt5.QtWidgets import  QDialog
 from interfaces.insertar_editar import Ui_Dialog as insertar_editar
 
 class InsertarEditar(QDialog, insertar_editar):

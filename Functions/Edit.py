@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import  QDialog
 import pandas as pd
 import Functions.dbconnection as db
+from PyQt5.QtWidgets import  QDialog
 #from interfaces.dialogo_busqueda import Ui_Dialog as Busqueda
 from interfaces.dialogo_busqueda_edit import Ui_Dialog as Busqueda
 
