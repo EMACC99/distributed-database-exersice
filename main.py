@@ -1,8 +1,8 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from interfaces.interfaz import Ui_MainWindow as window
 import pandas as pd
 import Functions.dbconnection as db
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from interfaces.interfaz import Ui_MainWindow as window
 from Functions.busqueda import buscar
 from Functions.table_model import TableModel
 from Functions.insertar_editar import InsertarEditar
