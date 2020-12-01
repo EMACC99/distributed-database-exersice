@@ -180,8 +180,12 @@ def list_find(value, column, table, databases = None):
             cursor.execute(query)
 
         elif databases is not None:
-            query = f"SELECT * FROM {databases[0]}.{table} WHERE {column} = '{value}' UNION SELECT * FROM {databases[1]}.{table} WHERE {column} = '{value}'"
+            # query = f"SELECT * FROM {databases[0]}.{table} WHERE {column} = '{value}' UNION SELECT * FROM {databases[1]}.{table} WHERE {column} = '{value}'"
             # cursor.execute(query, tuple([databases[0], table, databases[1], table, column, value]))
+            query = "SELECT * FROM"
+            for i in range(len(databases) -1):
+                query += f"{databases[i]}.{table} WHERE {column} = '{value} UNION SELECT * FROM"
+            query += f"{databases[-1]}.{table}"
             cursor.execute(query)
 
         items = [list(row) for row in cursor]
