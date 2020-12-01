@@ -45,9 +45,12 @@ class Edit(QDialog, Busqueda):
         column = self.campos.currentText()
         table = self.table
         idr = self.results2[0][0]
-        print(idr)
+        #print(column)
         db.edit_registro(value, column, table,idr)
-    
+        self.new_resultado = db.list_find(value, column, table)
+        self.new_resultado = pd.DataFrame(self.new_resultado, columns=self.columns)
+        self.model = TableModel(self.new_resultado)
+        self.parent.tableView.setModel(self.model)
         
         
         
