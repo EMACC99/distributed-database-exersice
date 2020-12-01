@@ -8,6 +8,7 @@ from Functions.table_model import TableModel
 from Functions.insertar_editar import InsertarEditar
 from Functions.create_table import NewTable
 from Functions.login import login
+from Functions.Edit import Edit
 
 class UI(QMainWindow, window):
     def __init__(self, parent = None):
@@ -30,12 +31,16 @@ class UI(QMainWindow, window):
         self.LoadValues.clicked.connect(lambda : self.select_all( db.get_column_names(self.TablecomboBox.currentText())))
         self.ListAll.clicked.connect(lambda : self.select_all(db.get_column_names(self.TablecomboBox.currentText()), all = True))
         self.actionBuscar.triggered.connect(self.call_find)
-        self.actionEditar_Registro.triggered.connect(lambda: self.call_edit_insert(insertar=False))
+        self.actionEditar_Registro.triggered.connect(self.edit_find)
         self.actionNuevo_Registro.triggered.connect(lambda: self.call_edit_insert(insertar = True))
         self.actionNueva_Tabla.triggered.connect(self.call_new_table)
     def call_find(self):
         buscar(self, self.TablecomboBox.currentText(), db.get_column_names(self.TablecomboBox.currentText())).show()
 
+    def edit_find(self):
+        Edit(self, self.TablecomboBox.currentText(), db.get_column_names(self.TablecomboBox.currentText())).show()
+        
+        
     def call_edit_insert(self, insertar):
         InsertarEditar(self, insertar = insertar, table = self.TablecomboBox.currentText(), columns = db.get_column_names(self.TablecomboBox.currentText())).show()
 

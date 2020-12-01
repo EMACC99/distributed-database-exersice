@@ -123,6 +123,22 @@ def nuevo_registro(table, values):
     except mariadb.Error as err:
         error(err)
 
+
+
+def list_all(table, databases):
+    try:
+        items = []
+        cnx = mariadb.connect(**config)
+        cursor = cnx.cursor()
+        query  = f"SELECT * FROM {databases[0]}.{table} UNION SELECT * FROM {databases[1]}.{table}" #this is flawed but it has an easy fix
+        cursor.execute(query)
+        for row in cursor:
+            items.append(list(row))
+        cnx.commit()
+        return items
+    except mariadb.Error as err:
+        error(err)
+
 def editar_registro(table, values, columns, id):
     try:
         cnx = mariadb.connect()
@@ -138,19 +154,20 @@ def editar_registro(table, values, columns, id):
     except mariadb.Error as err:
         error(err)
 
-def list_all(table, databases):
+
+def edit_registro(value, column, table,idr):
     try:
-        items = []
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()
-        query  = f"SELECT * FROM {databases[0]}.{table} UNION SELECT * FROM {databases[1]}.{table}" #this is flawed but it has an easy fix
-        cursor.execute(query)
-        for row in cursor:
-            items.append(list(row))
+        query  = f"UPDATE {table} SET {column} = '{value}' WHERE id = {idr}"
+        #query  = f"UPDATE {table} SET (" + "%s, "*(len(values) -1) + "%s)"
+        # UPDATE Clientes SET Nombre = 'Maria' WHERE id = 6;
+        cursor.execute(query)#, tuple(values))
         cnx.commit()
-        return items
+    
     except mariadb.Error as err:
         error(err)
+
 
 def list_find(value, column, table, databases = None):
     try:
@@ -172,6 +189,7 @@ def list_find(value, column, table, databases = None):
 
     except mariadb.Error as err:
         error(err)
+
 
 def new_table(Name : str, columns : list, data_types : list, database : str, keys : list = None ):
     try:
