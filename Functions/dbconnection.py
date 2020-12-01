@@ -127,7 +127,13 @@ def list_all(table, databases):
         items = []
         cnx = mariadb.connect(**config)
         cursor = cnx.cursor()
-        query  = f"SELECT * FROM {databases[0]}.{table} UNION SELECT * FROM {databases[1]}.{table}" #this is flawed but it has an easy fix
+        # query  = f"SELECT * FROM {databases[0]}.{table} UNION SELECT * FROM {databases[1]}.{table}"
+        query  = "SELECT *  FROM"
+        for i in range(len(databases) - 1):
+            query += f"{databases[i]}.{table} UNION SELECT * FROM"
+
+        query += f"{databases[-1]}.{table}"
+        
         cursor.execute(query)
         for row in cursor:
             items.append(list(row))
