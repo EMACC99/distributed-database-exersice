@@ -10,7 +10,7 @@ class login(QMainWindow, login_ui):
         self.parent = parent
         self.setupUi(self)
 
-
+        self.setWindowTitle("MySQL login")
         self.pushButton.clicked.connect(self.login)
         self.pushButton_2.clicked.connect(sys.exit)
 
