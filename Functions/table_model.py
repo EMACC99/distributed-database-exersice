@@ -1,4 +1,4 @@
-from PyQt5.QtCore import QModelIndex, Qt, QAbstractTableModel
+from PyQt5.QtCore import Qt, QAbstractTableModel
 class TableModel(QAbstractTableModel):
     def __init__(self, data):
         super().__init__()

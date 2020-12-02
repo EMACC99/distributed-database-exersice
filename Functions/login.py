@@ -1,6 +1,6 @@
 import Functions.dbconnection as db
 import sys
-from PyQt5.QtWidgets import QDialog, QMainWindow, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QMessageBox
 from interfaces.login_ui import Ui_MainWindow as login_ui
 
 class login(QMainWindow, login_ui):
