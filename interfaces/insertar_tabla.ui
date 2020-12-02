@@ -248,6 +248,19 @@
     <string>Columna que referencia</string>
    </property>
   </widget>
+  <widget class="QCheckBox" name="AllcheckBox">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>230</y>
+     <width>171</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Insertar en todas las db</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

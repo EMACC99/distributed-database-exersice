@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'interfaces/insertar_tabla.ui'
+# Form implementation generated from reading ui file 'insertar_tabla.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -73,6 +73,9 @@ class Ui_Dialog(object):
         self.label_7 = QtWidgets.QLabel(Dialog)
         self.label_7.setGeometry(QtCore.QRect(620, 270, 121, 16))
         self.label_7.setObjectName("label_7")
+        self.AllcheckBox = QtWidgets.QCheckBox(Dialog)
+        self.AllcheckBox.setGeometry(QtCore.QRect(150, 230, 171, 17))
+        self.AllcheckBox.setObjectName("AllcheckBox")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -91,4 +94,5 @@ class Ui_Dialog(object):
         self.label_5.setText(_translate("Dialog", "Tabla que referencia"))
         self.label_6.setText(_translate("Dialog", "Nombre Tabla"))
         self.label_7.setText(_translate("Dialog", "Columna que referencia"))
+        self.AllcheckBox.setText(_translate("Dialog", "Insertar en todas las db"))
 

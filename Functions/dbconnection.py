@@ -17,7 +17,7 @@ def error(err):
 
 def verify_credentials(user, password):
     try:
-        cnx = mariadb.connect(host = "127.0.0.1", user = user, passwd = password)
+        mariadb.connect(host = "127.0.0.1", user = user, passwd = password)
         return True
     except mariadb.Error as err:
         error(err)
@@ -111,6 +111,33 @@ def count_items(table):
     except mariadb.Error as err:
         error(err)
 
+# def is_repeated(table, values):
+#     try:
+#         cnx = mariadb.connect(**config)
+#         cursor = cnx.cursor()
+#         # query  = f"INSERT INTO {table} VALUES (" + "%s, "*(len(values) -1) + "%s)"
+#         databases = get_databases()
+#         columns = get_column_names(table)
+#         query = "SELECT COUNT(*) FROM "
+#         for i in range(len(databases) - 1):
+#             query += f"{databases[i]}.{table} WHERE " + "%s = %s UNION ALL SELECT COUNT(*) FROM"
+#         query += f"{databases[-1]}.{table} WHERE "
+#         query += '%s = %s'
+#         query_values = []
+#         for i in range(len(columns)):
+#             query_values.append(columns[i])
+#             query_values.append(values[i])
+#         for i in range(len(databases)):
+#             query_values.append(query_values[-1])
+#         cursor.execute(query, tuple(query_values))
+#         items = [item[0] for item in cursor.fetchall()]
+#         cnx.commit()
+        
+#         return len(items) == 0
+
+#     except mariadb.Error as err:
+#         error(err)
+
 def nuevo_registro(table, values):
     try:
         cnx = mariadb.connect(**config)
@@ -142,20 +169,20 @@ def list_all(table, databases):
     except mariadb.Error as err:
         error(err)
 
-def editar_registro(table, values, columns, id):
-    try:
-        cnx = mariadb.connect()
-        cursor = cnx.cursor()
-        query = f"UPDATE {table} SET" + "%s = %s" *len(values) + f"WHERE Id = {id}"
-        query_values = []
-        for i in range(len(columns)):
-            query_values.append(columns[i])
-            query_values.append(values[i])
+# def editar_registro(table, values, columns, id): #esta funcion no se utiliza, se reemplazo con la de abajo
+#     try:
+#         cnx = mariadb.connect()
+#         cursor = cnx.cursor()
+#         query = f"UPDATE {table} SET" + "%s = %s" *len(values) + f"WHERE Id = {id}"
+#         query_values = []
+#         for i in range(len(columns)):
+#             query_values.append(columns[i])
+#             query_values.append(values[i])
 
-        cursor.execute(query, tuple(query_values))
-        cnx.commit()
-    except mariadb.Error as err:
-        error(err)
+#         cursor.execute(query, tuple(query_values))
+#         cnx.commit()
+#     except mariadb.Error as err:
+#         error(err)
 
 def edit_registro(value, column, table,idr):
     try:
@@ -204,7 +231,7 @@ def new_table(Name : str, columns : list, data_types : list, database : str, key
         cnx.commit()
         header_commit = f"CREATE TABLE {Name} ("
         contents = ""
-        for i in range(len(columns)):
+        for i in range(len(columns) - 1):
             contents += f"{columns[i]} {data_types[i][0]}({data_types[i][1]}),"
         # query = f"CREATE TABLE {Name} ("  + "%s %s(%s)," * (len(columns) - 1) + "%s %s(%s) )"
         # aux = []
@@ -213,13 +240,14 @@ def new_table(Name : str, columns : list, data_types : list, database : str, key
         #     aux.append(data_types[i][0]) #data type
         #     aux.append(data_types[i][1]) #data size
         # cursor.execute(query, tuple(aux))
+        contents += f"{columns[-1]} {data_types[-1][0]}({data_types[-1][1]})"
         query = header_commit + contents
         if keys is not None:
             for key in keys:
                 if key[0] == 'Primaria':
-                    query += f'PRIMARY KEY ({columns[key[-1]]}),'
+                    query += f', PRIMARY KEY ({columns[key[-1]]})'
                 elif key[0] == 'Foranea':
-                    query += f'FOREIGN KEY ({columns[key[-1]]}) REFERENCES {key[1]}({key[2]})'
+                    query += f', FOREIGN KEY ({columns[key[-1]]}) REFERENCES {key[1]}({key[2]})'
             
         query += ')'
         print(query)
@@ -228,7 +256,10 @@ def new_table(Name : str, columns : list, data_types : list, database : str, key
 
 
     except mariadb.Error as err:
-        error(err)
+        if err.errno == errorcode.ER_DB_CREATE_EXISTS:
+            return
+        else:
+            error(err)
 
 def get_table_pk(table_name : str, database : str):
     try:

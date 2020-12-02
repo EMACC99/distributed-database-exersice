@@ -56,8 +56,17 @@ class NewTable(QDialog, talbe_dialog):
         self.ReferenceColumn.addItems(db.get_column_names(self.ReferenceTable.currentText()))
 
     def insert_table(self):
-        db.new_table(self.tableName.text(), self.col_names, self.data_types, "Moreliadb", self.keys) 
-        db.new_table(self.tableName.text(), self.col_names, self.data_types, "Patzcuarodb", self.keys)
+        # db.new_table(self.tableName.text(), self.col_names, self.data_types, "Moreliadb", self.keys) 
+        # db.new_table(self.tableName.text(), self.col_names, self.data_types, "Patzcuarodb", self.keys)
+        if self.AllcheckBox.isChecked():
+            for database in db.get_databases():
+                try:
+                    db.new_table(self.tableName.text(), self.col_names, self.data_types, database, self.keys)
+                except:
+                    continue
+        else:
+            db.new_table(self.tableName.text(), self.col_names, self.data_types, self.parent.DatabaseComboBox.currentText(), self.keys)
+
         self.close()
 
     def add(self):
