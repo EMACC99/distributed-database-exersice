@@ -5,7 +5,7 @@
 ## License :
 MIT License
 ## Introduction:
-We create a software that manage two distributed databases
+We create a software that manage two, or more, distributed databases
 ## Requirements:
 The proyect needs the following packages, this projects run on linux.:
 * Python 3: `sudo apt-get install python3.8`
