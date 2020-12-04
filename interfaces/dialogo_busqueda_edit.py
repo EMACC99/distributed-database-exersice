@@ -46,8 +46,8 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.pushButton.setText(_translate("Dialog", "Buscar"))
         self.pushButton_2.setText(_translate("Dialog", "Cancelar"))
-        self.label.setText(_translate("Dialog", "Campo"))
+        self.label.setText(_translate("Dialog", "Atributo"))
         self.pushButton_3.setText(_translate("Dialog", "Editar"))
         self.label_2.setText(_translate("Dialog", "1- Primero busca el registro a editar"))
-        self.label_3.setText(_translate("Dialog", "2- Selecciona el atrbuto a editar y escribe"))
+        self.label_3.setText(_translate("Dialog", "2- Selecciona el atributo a editar y escribe"))
 

@@ -72,7 +72,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Campo</string>
+    <string>Atributo</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
@@ -111,7 +111,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>2- Selecciona el atrbuto a editar y escribe</string>
+    <string>2- Selecciona el atributo a editar y escribe</string>
    </property>
   </widget>
  </widget>
