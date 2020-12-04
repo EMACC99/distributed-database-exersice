@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(400, 300)
+        Dialog.resize(395, 300)
         self.lineEdit = QtWidgets.QLineEdit(Dialog)
         self.lineEdit.setGeometry(QtCore.QRect(160, 150, 151, 21))
         self.lineEdit.setObjectName("lineEdit")
@@ -19,10 +19,10 @@ class Ui_Dialog(object):
         self.comboBox.setGeometry(QtCore.QRect(10, 150, 131, 21))
         self.comboBox.setObjectName("comboBox")
         self.pushButton = QtWidgets.QPushButton(Dialog)
-        self.pushButton.setGeometry(QtCore.QRect(150, 220, 75, 23))
+        self.pushButton.setGeometry(QtCore.QRect(50, 220, 75, 23))
         self.pushButton.setObjectName("pushButton")
         self.CancelButton = QtWidgets.QPushButton(Dialog)
-        self.CancelButton.setGeometry(QtCore.QRect(260, 220, 75, 23))
+        self.CancelButton.setGeometry(QtCore.QRect(220, 220, 75, 23))
         self.CancelButton.setObjectName("CancelButton")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(Dialog)
         self.plainTextEdit.setGeometry(QtCore.QRect(20, 10, 331, 111))

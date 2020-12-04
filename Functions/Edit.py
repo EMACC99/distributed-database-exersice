@@ -15,20 +15,16 @@ class Edit(QDialog, Busqueda):
         self.columns = columns
         self.campos.addItems(self.columns)
         self.results2 = None
+        self.setWindowTitle("Editar Registro")
         self.pushButton.clicked.connect(lambda: self.find())
         self.pushButton_2.clicked.connect(self.close)
         self.pushButton_3.clicked.connect(lambda: self.edit())
-
 
     def find(self,  data = None):
         value = self.lineEdit.text()
         column = self.campos.currentText()
         table = self.table
-        if  self.checkBox.isChecked():
-            databases = ['Moreliadb', 'Patzcuarodb']
-            self.results = db.list_find(value, column, table, databases)
-        else:
-            self.results = db.list_find(value, column, table)
+        self.results = db.list_find(value, column, table)
 
         print(self.results)
         self.results2 = self.results

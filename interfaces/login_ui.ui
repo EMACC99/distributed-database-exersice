@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>381</width>
-    <height>297</height>
+    <height>253</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,14 +17,14 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>200</y>
+      <x>80</x>
+      <y>180</y>
       <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>login</string>
+     <string>Login</string>
     </property>
     <property name="default">
      <bool>true</bool>
@@ -33,20 +33,20 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>200</y>
+      <x>240</x>
+      <y>180</y>
       <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>cancelar</string>
+     <string>Cancelar</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>150</x>
       <y>50</y>
       <width>113</width>
       <height>20</height>
@@ -56,7 +56,7 @@
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>150</x>
       <y>100</y>
       <width>113</width>
       <height>20</height>
@@ -71,12 +71,12 @@
      <rect>
       <x>90</x>
       <y>50</y>
-      <width>31</width>
+      <width>51</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>User</string>
+     <string>Usuario</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -84,12 +84,25 @@
      <rect>
       <x>70</x>
       <y>100</y>
-      <width>47</width>
-      <height>13</height>
+      <width>71</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>password</string>
+     <string>Contraseña</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>10</y>
+      <width>191</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ingresa tus datos de MySQL</string>
     </property>
    </widget>
   </widget>
@@ -99,7 +112,7 @@
      <x>0</x>
      <y>0</y>
      <width>381</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

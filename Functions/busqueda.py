@@ -14,6 +14,7 @@ class buscar(QDialog, Busqueda):
         self.table = table
         self.columns = columns
         self.campos.addItems(self.columns)
+        self.setWindowTitle("Buscar Registro")
         self.pushButton.clicked.connect(lambda: self.find())
         self.pushButton_2.clicked.connect(self.close)
 
